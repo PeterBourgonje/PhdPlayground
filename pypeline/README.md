@@ -1,11 +1,10 @@
 # German Shallow Discourse Parsing Pipeline
 
 An under-development version of a tool for end-to-end shallow discourse parsing for German. 
-An experimental demo interface is available [here](http://annis.ling.uni-potsdam.de/gsdpdemo/) 
-(warning; not guaranteed to work).
 
 Currently, only components for connective classification and argument extraction are implemented. 
 Components for sense classification and implicit relations, as well as the tool itself, are still under development.
+
 
 ## License
 
