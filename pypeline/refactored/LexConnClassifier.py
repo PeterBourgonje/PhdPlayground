@@ -13,6 +13,8 @@ from nltk.parse import stanford
 from nltk.tree import ParentedTree
 from collections import defaultdict
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score, cross_validate
+from sklearn.metrics import f1_score, precision_score, recall_score
 from nltk import word_tokenize, sent_tokenize
 import DimLexParser
 import PCCParser
@@ -162,6 +164,34 @@ class LexConnClassifier:
         self.classifier = RandomForestClassifier(n_estimators=100)
         self.classifier.fit(X, y)
         sys.stderr.write('INFO: Done training.\n')
+
+    def evaluate(self, parser):
+
+        matrix, headers = self.getPCCFeatures(parser)
+        df = pandas.DataFrame(matrix, columns=headers)
+        train_labels = df.class_label
+        labels = list(set(train_labels)) # this just converts the labels to 0 and 1 (since my labels are binary), can also comment it out (in fact; have commented it out in the train function)
+        train_labels = numpy.array([labels.index(x) for x in train_labels])
+        train_features = df.iloc[:,1:len(headers)-1]
+        train_features = numpy.array(train_features)
+        
+        self.classifier = RandomForestClassifier(n_estimators=100)
+        self.classifier.fit(train_features, train_labels)
+        
+        weighted_scoring = {'precision': 'precision_weighted',
+                            'recall': 'recall_weighted',
+                            'f': 'f1_weighted'}
+        crossvalscores_weighted = cross_validate(self.classifier, train_features, train_labels, cv=10, scoring=weighted_scoring)
+        
+        print('Training and evaluating on PCC (10-fold cv)')
+        avg_weighted_precision = numpy.mean([x for x in crossvalscores_weighted['test_precision']])
+        avg_weighted_recall = numpy.mean([x for x in crossvalscores_weighted['test_recall']])
+        avg_weighted_f = numpy.mean([x for x in crossvalscores_weighted['test_f']])
+        print('\tavg weighted precision %f' % avg_weighted_precision)
+        print('\tavg weighted recall    %f' % avg_weighted_recall)
+        print('\tavg weighted f         %f' % avg_weighted_f)
+    
+        
         
 
     def getPCCFeatures(self, parser, train_fileIds=None):
