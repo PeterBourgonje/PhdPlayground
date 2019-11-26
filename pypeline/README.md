@@ -5,7 +5,8 @@ An under-development version of a tool for end-to-end shallow discourse parsing 
 Currently, only components for connective classification and argument extraction are implemented. 
 Components for sense classification and implicit relations, as well as the tool itself, are still under development.
 
-A screencast of an experimental GUI is available for download [here](annis.ling.uni-potsdam.de/gsdp_gui_demo.mp4). The user-specified input text is processed and connective (yellow) and argument (green and blue) tokens are highlighted according to parser output. Final visualisation issues (the amount of overlapping annotations for longer texts render individual annotations practically unreadable) as well as performance issues (processing time for longer texts) are all subject to ongoing developments.
+A screencast of an experimental GUI is available for download [here](annis.ling.uni-potsdam.de/gsdp_gui_demo.mp4). The user-specified input text is processed and connective (yellow) and argument (green and blue) tokens are highlighted according to parser output. 
+Please note that final visualisation issues (the amount of overlapping annotations for longer texts render individual annotations practically unreadable) as well as performance issues (processing time for longer texts) are all subject to ongoing developments.
 
 ## License
 
