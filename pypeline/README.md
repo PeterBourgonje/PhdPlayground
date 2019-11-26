@@ -22,4 +22,4 @@ Association for Computational Linguistics. [PDF](http://aclweb.org/anthology/W18
 
 The argument extraction component is based on:</br>
 Peter Bourgonje and Manfred Stede. "Explicit Discourse Argument Extraction for German." 
-*In Proceedings of the 21st International Conference on Text, Speech and Dialogue.* Ljubljana, Slovenia, 2019. *To appear*.
+*In Proceedings of the 21st International Conference on Text, Speech and Dialogue.* Ljubljana, Slovenia, 2019. [PDF](https://link.springer.com/chapter/10.1007/978-3-030-27947-9_3)
