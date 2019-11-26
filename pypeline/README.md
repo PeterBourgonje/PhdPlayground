@@ -5,8 +5,6 @@ An under-development version of a tool for end-to-end shallow discourse parsing 
 Currently, only components for connective classification and argument extraction are implemented. 
 Components for sense classification and implicit relations, as well as the tool itself, are still under development.
 
-![](gsdp_gui_gif.gif)
-
 ## License
 
 This code is released under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
